@@ -1,0 +1,23 @@
+#1.enum StatMsgType
+
+```cpp
+/* ----------
+ * The types of backend -> collector messages
+ * ----------
+ */
+typedef enum StatMsgType
+{
+    PGSTAT_MTYPE_DUMMY,
+    PGSTAT_MTYPE_INQUIRY,
+    PGSTAT_MTYPE_TABSTAT,
+    PGSTAT_MTYPE_TABPURGE,
+    PGSTAT_MTYPE_DROPDB,
+    PGSTAT_MTYPE_RESETCOUNTER,
+    PGSTAT_MTYPE_AUTOVAC_START,
+    PGSTAT_MTYPE_VACUUM,
+    PGSTAT_MTYPE_ANALYZE,
+    PGSTAT_MTYPE_BGWRITER,
+    PGSTAT_MTYPE_FUNCSTAT,
+    PGSTAT_MTYPE_FUNCPURGE
+} StatMsgType;
+```
