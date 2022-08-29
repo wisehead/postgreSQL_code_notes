@@ -1,4 +1,4 @@
-#1.heap_page_prune
+#1.heap\_page_prune
 
 ```cpp
 /*
