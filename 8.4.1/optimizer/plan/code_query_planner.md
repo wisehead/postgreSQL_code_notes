@@ -63,3 +63,21 @@ query_planner(PlannerInfo *root, List *tlist,
 #2.caller
 
 - grouping_planner
+
+#3.stack
+
+```
+query_planner
+--add_base_rels_to_query
+--build_base_rel_tlists
+--make_one_rel
+```
+
+
+
+
+
+
+
+
+
