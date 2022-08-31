@@ -34,6 +34,14 @@ subquery_planner(PlannerGlobal *glob, Query *parse,
                  bool hasRecursion, double tuple_fraction,
                  PlannerInfo **subroot)
 
+subquery_planner
+--pull_up_sublinks
+--pull_up_subqueries
+--preprocess_expression
+--preprocess_qual_conditions
+--inheritance_planner
+--grouping_planner
+--SS_finalize_plan
 ```
 
 #2.caller
