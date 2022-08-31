@@ -18,9 +18,5 @@ set_append_rel_pathlist(PlannerInfo *root, RelOptInfo *rel,
                         Index rti, RangeTblEntry *rte)
 ```
 
-#2.stack
-
-```
-- 
-
-```
+#2.notes
+![](../images/1.png)
