@@ -13,6 +13,8 @@ InitBuildState
 --TupleDescInitEntry(buildstate->tupdesc, (AttrNumber) 2, "tid", TIDOID, -1, 0)
 --TupleDescInitEntry(buildstate->tupdesc, (AttrNumber) 3, "vector", RelationGetDescr(index)->attrs[0].atttypid, -1, 0);
 --buildstate->slot = MakeSingleTupleTableSlot(buildstate->tupdesc, &TTSOpsVirtual);
+--buildstate->centers = VectorArrayInit(buildstate->lists, buildstate->dimensions);
+-- buildstate->normvec = InitVector(buildstate->dimensions);
 ```
 
 #2.caller
