@@ -7,6 +7,7 @@
 SampleRows
 --RelationGetNumberOfBlocks
 ----RelationGetNumberOfBlocksInFork
-------
+--UpdateProgress
+----pgstat_progress_update_param
 
 ```
