@@ -16,4 +16,5 @@ fmgr_info_cxt_security
 --else == NULL
 ----procedureTuple = SearchSysCache1(PROCOID, ObjectIdGetDatum(functionId));
 ------SearchCatCache1(SysCache[cacheId], key1);
+--------SearchCatCacheInternal
 ```
