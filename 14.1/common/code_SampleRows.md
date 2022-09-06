@@ -9,5 +9,6 @@ SampleRows
 ----RelationGetNumberOfBlocksInFork
 --UpdateProgress
 ----pgstat_progress_update_param
+--BlockSampler_Init
 
 ```
