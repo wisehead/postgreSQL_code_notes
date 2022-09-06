@@ -17,7 +17,7 @@ RelationIdGetRelation
 --if (RelationIsValid(rd))
 ----RelationIncrementReferenceCount(rd);
 ------ResourceOwnerEnlargeRelationRefs
---------ResourceArrayEnlarge
+--------ResourceArrayEnlarge//预分配，预留资源
 --else	//(RelationIsValid(rd))
 ----									   
 ```
