@@ -21,5 +21,6 @@ FileClose
 ----ReportTemporaryFileUsage
 --if (vfdP->resowner)
 ----ResourceOwnerForgetFile(vfdP->resowner, file);
+------ResourceArrayRemove
 --FreeVfd(file);
 ```
