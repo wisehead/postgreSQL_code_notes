@@ -7,5 +7,6 @@ index_beginscan
 ----scan = indexRelation->rd_indam->ambeginscan(indexRelation, nkeys,norderbys);
 ------ivfflatbeginscan
 --table_index_fetch_begin
-
+----rel->rd_tableam->index_fetch_begin(rel);
+------heapam_index_fetch_begin
 ```
