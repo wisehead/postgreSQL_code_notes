@@ -7,4 +7,5 @@ mdclose
 ----MdfdVec *v = &reln->md_seg_fds[forknum][nopensegs - 1];
 ----FileClose(v->mdfd_vfd);
 ----_fdvec_resize(reln, forknum, nopensegs - 1);
+------repalloc(reln->md_seg_fds[forknum],sizeof(MdfdVec) * nseg);
 ```
