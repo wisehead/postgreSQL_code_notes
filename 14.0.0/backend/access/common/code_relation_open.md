@@ -18,6 +18,16 @@ RelationIdGetRelation
 ----RelationIncrementReferenceCount(rd);
 ------ResourceOwnerEnlargeRelationRefs
 --------ResourceArrayEnlarge//预分配，预留资源
+------rel->rd_refcnt += 1;
+------ResourceOwnerRememberRelationRef
+--------ResourceArrayAdd
+----if (!rd->rd_isvalid)
+------if (rd->rd_rel->relkind == RELKIND_INDEX ||
+				rd->rd_rel->relkind == RELKIND_PARTITIONED_INDEX)
+--------RelationReloadIndexInfo(rd);
+------else
+--------RelationClearRelation(rd, true);
+----return rd;
 --else	//(RelationIsValid(rd))
 ----									   
 ```
