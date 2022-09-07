@@ -12,8 +12,14 @@ systable_beginscan
 --------snap->regd_count++;
 --------ResourceOwnerRememberSnapshot(owner, snap);
 ----------ResourceArrayAdd
---sysscan->iscan = index_beginscan(heapRelation, indexRelation,
+--if (irel)
+----sysscan->iscan = index_beginscan(heapRelation, indexRelation,
 									 snapshot, nkeys, 0);
 									 
---index_rescan(sysscan->iscan, key, nkeys, NULL, 0);
+----index_rescan(sysscan->iscan, key, nkeys, NULL, 0);
+------scan->indexRelation->rd_indam->amrescan(scan, keys, nkeys,
+											orderbys, norderbys);
+--------ivfflatrescan
+--else//if (irel)
+----
 ```
