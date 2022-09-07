@@ -13,4 +13,6 @@ ivfflatbeginscan
 --TupleDescInitEntry(so->tupdesc, (AttrNumber) 2, "tid", TIDOID, -1, 0);
 --TupleDescInitEntry(so->tupdesc, (AttrNumber) 3, "indexblkno", INT4OID, -1, 0);
 --so->sortstate = tuplesort_begin_heap(so->tupdesc, 1, attNums, sortOperators, sortCollations, nullsFirstFlags, work_mem, NULL, false);
+--so->slot = MakeSingleTupleTableSlot(so->tupdesc, &TTSOpsMinimalTuple);
+--so->listQueue = pairingheap_allocate(CompareLists, scan);
 ```
