@@ -1,0 +1,6 @@
+#1.GetSnapshotData
+
+```
+GetSnapshotData
+--
+```
