@@ -2,5 +2,5 @@
 
 ```
 ivfflatbeginscan
---
+--RelationGetIndexScan
 ```
