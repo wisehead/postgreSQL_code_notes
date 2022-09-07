@@ -21,5 +21,6 @@ systable_beginscan
 											orderbys, norderbys);
 --------ivfflatrescan
 --else//if (irel)
-----
+----table_beginscan_strat
+------rel->rd_tableam->scan_begin
 ```
