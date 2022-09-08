@@ -10,6 +10,8 @@ ltsReadFillBuffer
 ------BufFileSeekBlock
 --------BufFileSeek
 ------BufFileRead
+----if (!lt->frozen)
+------ltsReleaseBlock(lts, datablocknum);
 
 
 --while (lt->buffer_size - lt->nbytes > BLCKSZ);
