@@ -15,6 +15,6 @@ ScanPgRelation
 ------GetSnapshotData
 ------pairingheap_add(&RegisteredSnapshots, &CatalogSnapshot->ph_node);
 --systable_beginscan
-
+--systable_getnext
 
 ```
