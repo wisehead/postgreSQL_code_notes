@@ -9,10 +9,10 @@ ltsReadFillBuffer
 ----ltsReadBlock(lts, datablocknum, (void *) thisbuf);
 ------BufFileSeekBlock
 --------BufFileSeek
-----------if (newFile == file->curFile && newOffset >= file->curOffset && newOffset <= file->curOffset + file->nbytes)
-------------
+
 ------BufFileRead
 
 
 --while (lt->buffer_size - lt->nbytes > BLCKSZ);
 ```
+
