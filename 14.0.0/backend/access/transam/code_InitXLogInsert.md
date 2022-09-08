@@ -7,4 +7,6 @@ InitXLogInsert
 --registered_buffers = MemoryContextAllocZero
 ----context->methods->alloc(context, size);
 ----MemSetAligned(ret, 0, size);
+--rdatas = MemoryContextAlloc
+--hdr_scratch = MemoryContextAllocZero
 ```
