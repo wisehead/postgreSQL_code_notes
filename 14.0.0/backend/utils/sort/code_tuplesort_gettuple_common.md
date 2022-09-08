@@ -13,4 +13,17 @@ tuplesort_gettuple_common
 ----else// if (forward)
 ------*stup = state->memtuples[state->current - 1];
 
+--case TSS_SORTEDONTAPE:
+----if (state->lastReturnedTuple)
+------RELEASE_SLAB_SLOT(state, state->lastReturnedTuple);
+------state->lastReturnedTuple = NULL;
+----if (forward)
+------uplen = getlen(state, state->result_tape, true)
+--------LogicalTapeRead
+------READTUP(state, stup, state->result_tape, tuplen);
+------state->lastReturnedTuple = stup->tuple;
+------return true;
+----else //backword
+------
+
 ```
