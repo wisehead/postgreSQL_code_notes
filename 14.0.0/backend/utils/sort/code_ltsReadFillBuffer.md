@@ -12,6 +12,16 @@ ltsReadFillBuffer
 ------BufFileRead
 ----if (!lt->frozen)
 ------ltsReleaseBlock(lts, datablocknum);
+----lt->curBlockNumber = lt->nextBlockNumber;
+----lt->nbytes += TapeBlockGetNBytes(thisbuf);
+----if (TapeBlockIsLast(thisbuf))
+		{
+			lt->nextBlockNumber = -1L;
+			/* EOF */
+			break;
+		}
+----else
+			lt->nextBlockNumber = TapeBlockGetTrailer(thisbuf)->next;
 
 
 --while (lt->buffer_size - lt->nbytes > BLCKSZ);
