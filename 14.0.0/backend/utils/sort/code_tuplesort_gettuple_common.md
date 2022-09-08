@@ -22,6 +22,8 @@ tuplesort_gettuple_common
 --------LogicalTapeRead
 ----------lt = &lts->tapes[tapenum];
 ------------ltsInitReadBuffer(lts, lt);
+--------------lt->buffer = palloc(lt->buffer_size);
+--------------ltsReadFillBuffer
 ------READTUP(state, stup, state->result_tape, tuplen);
 ------state->lastReturnedTuple = stup->tuple;
 ------return true;
