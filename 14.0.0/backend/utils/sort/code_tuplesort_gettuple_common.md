@@ -24,7 +24,8 @@ tuplesort_gettuple_common
 --------readtup_heap/readtup_index
 ------state->lastReturnedTuple = stup->tuple;
 ------return true;
-----else //backword
+----//backword
+----if (state->eof_reached)
 ------
 
 ```
