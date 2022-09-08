@@ -20,11 +20,8 @@ tuplesort_gettuple_common
 ----if (forward)
 ------uplen = getlen(state, state->result_tape, true)
 --------LogicalTapeRead
-----------lt = &lts->tapes[tapenum];
-------------ltsInitReadBuffer(lts, lt);
---------------lt->buffer = palloc(lt->buffer_size);
---------------ltsReadFillBuffer
 ------READTUP(state, stup, state->result_tape, tuplen);
+--------readtup_heap/readtup_index
 ------state->lastReturnedTuple = stup->tuple;
 ------return true;
 ----else //backword
