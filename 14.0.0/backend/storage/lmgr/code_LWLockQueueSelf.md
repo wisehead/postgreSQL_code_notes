@@ -10,4 +10,5 @@ LWLockQueueSelf
 ----proclist_push_head(&lock->waiters, MyProc->pgprocno, lwWaitLink);
 --else
 ----proclist_push_tail(&lock->waiters, MyProc->pgprocno, lwWaitLink);
+--LWLockWaitListUnlock(lock);
 ```
