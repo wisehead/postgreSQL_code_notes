@@ -25,13 +25,14 @@ LWLockAcquire
 ----if (TRACE_POSTGRESQL_LWLOCK_WAIT_START_ENABLED())
 			TRACE_POSTGRESQL_LWLOCK_WAIT_START(T_NAME(lock), mode);
 ----for (;;)
-			PGSemaphoreLock(proc->sem);
-			if (!proc->lwWaiting)
-				break;
-			extraWaits++;
+------PGSemaphoreLock(proc->sem);
+------if (!proc->lwWaiting)
+--------break;
+------extraWaits++;
 ----}//end for
-
-		/* Retrying, allow LWLockRelease to release waiters again. */
-		pg_atomic_fetch_or_u32(&lock->state, LW_FLAG_RELEASE_OK);
+----pg_atomic_fetch_or_u32(&lock->state, LW_FLAG_RELEASE_OK);
+----LWLockReportWaitEnd();
 --//end for
+--while (extraWaits-- > 0)
+----PGSemaphoreUnlock(proc->sem);
 ```
