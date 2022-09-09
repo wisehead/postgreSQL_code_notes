@@ -8,5 +8,12 @@ LWLockAcquire
 ----InterruptHoldoffCount++)
 --for (;;)
 ----mustwait = LWLockAttemptLock(lock, mode);
+----if (!mustwait)
+		{
+			LOG_LWDEBUG("LWLockAcquire", lock, "immediately acquired lock");
+			break;				/* got the lock */
+		}
+----LWLockQueueSelf(lock, mode);
+----mustwait = LWLockAttemptLock(lock, mode);
 --//end for
 ```
