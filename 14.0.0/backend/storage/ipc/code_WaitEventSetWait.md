@@ -21,6 +21,10 @@ WaitEventSetWait(WaitEventSet *set, long timeout,
 ------break;                                                               
 ----WaitEventSetWaitBlock(set, cur_timeout,
 								   occurred_events, nevents);
+----if (set->latch)
+------set->latch->maybe_sleeping = false;
+--waiting = false;
+--return returned_events;
 ```
 
 #2.caller
