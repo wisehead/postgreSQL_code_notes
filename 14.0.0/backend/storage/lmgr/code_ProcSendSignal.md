@@ -13,3 +13,15 @@ ProcSendSignal
 --if (proc != NULL)
 ----SetLatch(&proc->procLatch);//
 ```
+
+
+#2.signal waiter
+
+```
+LockBufferForCleanup
+--ProcWaitForSignal
+```
+
+#3.caller
+
+UnpinBuffer

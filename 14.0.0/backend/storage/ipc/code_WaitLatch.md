@@ -7,4 +7,5 @@ WaitLatch
 						 (wakeEvents & WL_TIMEOUT) ? timeout : -1,
 						 &event, 1,
 						 wait_event_info)
+--return event.events;
 ```
