@@ -11,5 +11,5 @@ ProcSendSignal
 ----proc = BackendPidGetProc(pid);
 
 --if (proc != NULL)
-----SetLatch(&proc->procLatch);
+----SetLatch(&proc->procLatch);//
 ```
