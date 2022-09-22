@@ -12,4 +12,8 @@ ivfflatgettuple
 ----UnpinBuffer(GetBufferDescriptor(buffer - 1), true);
 --ReadBuffer
 ----ReadBufferExtended
+------RelationOpenSmgr
+--------smgropen
+--------smgrsetowner
+------ReadBuffer_common
 ```
