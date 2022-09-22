@@ -8,4 +8,7 @@ InitLocalBuffers
 --for (i = 0; i < nbufs; i++)
 ----BufferDesc *buf = GetLocalBufferDescriptor(i);
 ----buf->buf_id = -i - 2;
+--info.keysize = sizeof(BufferTag);
+--info.entrysize = sizeof(LocalBufferLookupEnt);
+--LocalBufHash = hash_create
 ```
