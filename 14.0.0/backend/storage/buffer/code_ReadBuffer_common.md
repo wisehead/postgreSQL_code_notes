@@ -9,4 +9,6 @@ ReadBuffer_common
 ------smgrnblocks_cached
 ------result = smgrsw[reln->smgr_which].smgr_nblocks(reln, forknum);
 --------mdnblocks
+--if (isLocalBuf)
+----bufHdr = LocalBufferAlloc(smgr, forkNum, blockNum, &found);
 ```
