@@ -3,6 +3,7 @@
 ```
 tuplesort_gettupleslot
 --tuplesort_gettuple_common
+--heap_copy_minimal_tuple
 --ExecStoreMinimalTuple((MinimalTuple) stup.tuple, slot, copy);
 ----tts_minimal_store_tuple
 ------tts_minimal_clear

@@ -9,4 +9,7 @@ ivfflatgettuple
 --BlockNumber indexblkno = DatumGetInt32(slot_getattr(so->slot, 3, &so->isnull));
 --scan->xs_heaptid = *tid;
 --ReleaseBuffer(so->buf);
+----UnpinBuffer(GetBufferDescriptor(buffer - 1), true);
+--ReadBuffer
+----ReadBufferExtended
 ```
