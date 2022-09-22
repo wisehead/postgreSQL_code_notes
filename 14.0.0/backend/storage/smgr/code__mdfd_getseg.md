@@ -19,4 +19,8 @@ _mdfd_getseg
 --------mdextend(reln, forknum,
 						 nextsegno * ((BlockNumber) RELSEG_SIZE) - 1,
 						 zerobuf, skipFsync);
+----else if (!(behavior & EXTENSION_DONT_CHECK_SIZE) &&
+				 nblocks < ((BlockNumber) RELSEG_SIZE))
+------ereport
+----v = _mdfd_openseg(reln, forknum, nextsegno, flags);//open new segment
 ```
