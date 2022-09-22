@@ -27,6 +27,30 @@ ShmemInitStruct
 ```
 
 #2. ShmemAlloc
+```
+ShmemAlloc
+--ShmemAllocRaw
+```
 
 
 #3. ShmemAllocRaw
+
+```
+ShmemAllocRaw
+--size = CACHELINEALIGN(size);
+--SpinLockAcquire(ShmemLock);
+--newStart = ShmemSegHdr->freeoffset;
+--newFree = newStart + size;
+--if (newFree <= ShmemSegHdr->totalsize)
+----newSpace = (void *) ((char *) ShmemBase + newStart);
+----ShmemSegHdr->freeoffset = newFree;
+--else
+----newSpace = NULL;
+--SpinLockRelease(ShmemLock);
+```
+
+
+
+
+
+
