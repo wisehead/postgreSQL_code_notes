@@ -25,5 +25,15 @@ mdopenfork
 
 ```
 _fdvec_resize
---
+--if (nseg == 0)
+----if (reln->md_num_open_segs[forknum] > 0)
+------pfree(reln->md_seg_fds[forknum]);
+--else if (reln->md_num_open_segs[forknum] == 0)
+----reln->md_seg_fds[forknum] =
+			MemoryContextAlloc(MdCxt, sizeof(MdfdVec) * nseg);
+--else
+----reln->md_seg_fds[forknum] =
+			repalloc(reln->md_seg_fds[forknum],
+					 sizeof(MdfdVec) * nseg);
+--reln->md_num_open_segs[forknum] = nseg;
 ```
