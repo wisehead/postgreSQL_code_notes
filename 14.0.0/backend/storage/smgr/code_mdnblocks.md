@@ -3,7 +3,15 @@
 ```
 mdnblocks
 --mdopenfork
---
+--segno = reln->md_num_open_segs[forknum] - 1;
+--v = &reln->md_seg_fds[forknum][segno];
+--for (;;)
+----//Get number of blocks present in a single disk file
+----nblocks = _mdnblocks(reln, forknum, v);
+----if (nblocks < ((BlockNumber) RELSEG_SIZE))
+------return (segno * ((BlockNumber) RELSEG_SIZE)) + nblocks;
+----segno++;
+----v = _mdfd_openseg(reln, forknum, segno, 0);
 ```
 
 #2. mdopenfork
