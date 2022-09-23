@@ -20,4 +20,6 @@ ScanPgRelation
 ----pg_class_tuple = heap_copytuple(pg_class_tuple);
 --systable_endscan(pg_class_scan);
 --table_close(pg_class_desc, AccessShareLock);
+----relation_close
+------RelationClose(relation);
 ```
