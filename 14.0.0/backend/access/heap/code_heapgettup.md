@@ -9,4 +9,6 @@ heapgettup
 				(ParallelBlockTableScanDesc) scan->rs_base.rs_parallel;
 --------ParallelBlockTableScanWorker pbscanwork =
 				scan->rs_parallelworkerdata;
+--------table_block_parallelscan_startblock_init
+--------page = table_block_parallelscan_nextpage(scan->rs_base.rs_rd, 				pbscanwork, pbscan);
 ```
