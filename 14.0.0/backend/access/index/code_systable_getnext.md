@@ -9,5 +9,8 @@ systable_getnext
 ----------ivfflatgettuple
 ------index_fetch_heap(scan, slot))
 --else //if (sysscan->irel)
-----
+----table_scan_getnextslot
+------lot->tts_tableOid = RelationGetRelid(sscan->rs_rd);
+------sscan->rs_rd->rd_tableam->scan_getnextslot(sscan, direction, slot);
+--------heap_getnextslot
 ```
