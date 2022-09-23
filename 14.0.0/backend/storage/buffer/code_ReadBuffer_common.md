@@ -11,4 +11,6 @@ ReadBuffer_common
 --------mdnblocks
 --if (isLocalBuf)
 ----bufHdr = LocalBufferAlloc(smgr, forkNum, blockNum, &found);
+--else
+----BufferAlloc
 ```
