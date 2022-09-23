@@ -35,3 +35,17 @@ reserveAllocatedDesc
 ----return true;
 --return false;
 ```
+
+#3.BasicOpenFilePerm
+```
+BasicOpenFilePerm
+--fd = open(fileName, fileFlags, fileMode);
+```
+
+
+
+
+
+
+
+
