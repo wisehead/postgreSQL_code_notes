@@ -11,6 +11,10 @@ ForwardSyncRequest
 --request = &CheckpointerShmem->requests[CheckpointerShmem->num_requests++];
 --request->ftag = *ftag;
 --request->type = type;	 
+--LWLockRelease(CheckpointerCommLock);
+--if (too_full && ProcGlobal->checkpointerLatch)
+----SetLatch(ProcGlobal->checkpointerLatch);
+--return true;
 ```
 
 #2.CompactCheckpointerRequestQueue
