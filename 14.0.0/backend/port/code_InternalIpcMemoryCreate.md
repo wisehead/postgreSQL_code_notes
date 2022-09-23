@@ -10,3 +10,17 @@ InternalIpcMemoryCreate
 				(unsigned long) memKey, (unsigned long) shmid);
 --AddToDataDirLockFile(LOCK_FILE_LINE_SHMEM_KEY, line);
 ```
+
+#2.IpcMemoryDelete
+
+```
+IpcMemoryDelete
+--shmctl(DatumGetInt32(shmId), IPC_RMID, NULL) 
+```
+
+#3.IpcMemoryDetach
+
+```
+IpcMemoryDetach
+--shmdt(DatumGetPointer(shmaddr))
+```

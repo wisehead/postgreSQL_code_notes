@@ -6,4 +6,6 @@ PGSharedMemoryCreate
 --NextShmemSegID = statbuf.st_ino;
 --for (;;)
 ----memAddress = InternalIpcMemoryCreate(NextShmemSegID, sysvsize);
+----shmid = shmget(NextShmemSegID, sizeof(PGShmemHeader), 0);
+----PGSharedMemoryAttach
 ```
