@@ -11,4 +11,9 @@ index_endscan
 ----scan->xs_heapfetch = NULL;
 --scan->indexRelation->rd_indam->amendscan(scan);
 ----ivfflatendscan
+--RelationDecrementReferenceCount(scan->indexRelation);
+--if (scan->xs_temp_snap)
+----UnregisterSnapshot(scan->xs_snapshot);
+------UnregisterSnapshotFromOwner
+--IndexScanEnd(scan);
 ```
