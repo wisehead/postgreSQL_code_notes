@@ -44,5 +44,8 @@ LocalBufferAlloc
 				  localpage,
 				  false);
 ------mdwrite
-
+----buf_state &= ~BM_DIRTY;
+----pg_atomic_unlocked_write_u32(&bufHdr->state, buf_state);
+--if (LocalBufHdrGetBlock(bufHdr) == NULL)
+----LocalBufHdrGetBlock(bufHdr) = GetLocalBufferStorage();
 ```
