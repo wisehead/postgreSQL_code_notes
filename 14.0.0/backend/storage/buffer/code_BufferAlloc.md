@@ -10,4 +10,12 @@ BufferAlloc
 --if (buf_id >= 0)
 ----buf = GetBufferDescriptor(buf_id);
 ----PinBuffer
+----LWLockRelease(newPartitionLock);
+----return buf;
+--LWLockRelease(newPartitionLock);
+--for (;;)
+----ReservePrivateRefCountEntry
+----buf = StrategyGetBuffer(strategy, &buf_state);
+----oldFlags = buf_state & BUF_FLAG_MASK;
+----PinBuffer_Locked(buf);
 ```
