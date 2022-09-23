@@ -12,4 +12,10 @@ systable_endscan
 --if (sysscan->irel)
 ----index_endscan(sysscan->iscan);
 ----index_close(sysscan->irel, AccessShareLock);
+--else
+----table_endscan(sysscan->scan);
+------scan->rs_rd->rd_tableam->scan_end(scan);
+--------heap_endscan
+--if (sysscan->snapshot)
+----UnregisterSnapshot(sysscan->snapshot);
 ```
