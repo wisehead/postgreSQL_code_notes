@@ -28,6 +28,5 @@ RelationIdGetRelation
 ------else
 --------RelationClearRelation(rd, true);
 ----return rd;
---else	//(RelationIsValid(rd))
-----									   
+--rd = RelationBuildDesc(relationId, true);					   
 ```
