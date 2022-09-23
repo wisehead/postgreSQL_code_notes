@@ -11,4 +11,9 @@ heapgettup
 				scan->rs_parallelworkerdata;
 --------table_block_parallelscan_startblock_init
 --------page = table_block_parallelscan_nextpage(scan->rs_base.rs_rd, 				pbscanwork, pbscan);
+------else
+--------page = scan->rs_startblock
+------heapgetpage((TableScanDesc) scan, page);
+------lineoff = FirstOffsetNumber;	/* first offnum */
+------scan->rs_inited = true;
 ```
