@@ -13,11 +13,3 @@ dsm_impl_op
 ------return dsm_impl_mmap(op, handle, request_size, impl_private,
 								 mapped_address, mapped_size, elevel);
 ```
-
-#2.dsm_impl_posix
-
-```
-dsm_impl_posix
---
-```
-

@@ -53,5 +53,5 @@ dsm_impl_posix
 
 ```
 dsm_impl_posix_resize
---
+--ftruncate
 ```
