@@ -9,4 +9,5 @@ BufferAlloc
 ----hash_search_with_hash_value
 --if (buf_id >= 0)
 ----buf = GetBufferDescriptor(buf_id);
+----PinBuffer
 ```
