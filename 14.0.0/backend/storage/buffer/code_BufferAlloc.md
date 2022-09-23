@@ -18,4 +18,6 @@ BufferAlloc
 ----buf = StrategyGetBuffer(strategy, &buf_state);
 ----oldFlags = buf_state & BUF_FLAG_MASK;
 ----PinBuffer_Locked(buf);
+----if (oldFlags & BM_DIRTY)
+------
 ```
