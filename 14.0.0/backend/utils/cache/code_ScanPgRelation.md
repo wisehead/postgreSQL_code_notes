@@ -16,5 +16,8 @@ ScanPgRelation
 ------pairingheap_add(&RegisteredSnapshots, &CatalogSnapshot->ph_node);
 --systable_beginscan
 --systable_getnext
-
+--if (HeapTupleIsValid(pg_class_tuple))
+----pg_class_tuple = heap_copytuple(pg_class_tuple);
+--systable_endscan(pg_class_scan);
+--table_close(pg_class_desc, AccessShareLock);
 ```

@@ -13,4 +13,7 @@ systable_getnext
 ------lot->tts_tableOid = RelationGetRelid(sscan->rs_rd);
 ------sscan->rs_rd->rd_tableam->scan_getnextslot(sscan, direction, slot);
 --------heap_getnextslot
+----htup = ExecFetchSlotHeapTuple(sysscan->slot, false, &shouldFree);
+------slot->tts_ops->get_heap_tuple(slot);
+--------tts_heap_get_heap_tuple
 ```
