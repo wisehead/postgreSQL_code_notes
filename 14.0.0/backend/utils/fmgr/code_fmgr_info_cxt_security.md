@@ -13,8 +13,23 @@ fmgr_info_cxt_security
 		finfo->fn_addr = fbp->func;
 		finfo->fn_oid = functionId;
 		return;
---else == NULL
-----procedureTuple = SearchSysCache1(PROCOID, ObjectIdGetDatum(functionId));
-------SearchCatCache1(SysCache[cacheId], key1);
---------SearchCatCacheInternal
+--//else == NULL
+--procedureTuple = SearchSysCache1(PROCOID, ObjectIdGetDatum(functionId));
+----SearchCatCache1(SysCache[cacheId], key1);
+------SearchCatCacheInternal
+--procedureStruct = (Form_pg_proc) GETSTRUCT(procedureTuple);
+--switch (procedureStruct->prolang)
+----case INTERNALlanguageId:
+------prosrcdatum = SysCacheGetAttr(PROCOID, procedureTuple,
+										  Anum_pg_proc_prosrc, &isnull);
+------prosrc = TextDatumGetCString(prosrcdatum);
+------fbp = fmgr_lookupByName(prosrc);
+----case ClanguageId:
+------fmgr_info_C_lang(functionId, finfo, procedureTuple);
+---- case SQLlanguageId:
+------finfo->fn_addr = fmgr_sql;
+----default:
+------fmgr_info_other_lang(functionId, finfo, procedureTuple);
+--finfo->fn_oid = functionId;
+--ReleaseSysCache(procedureTuple);
 ```
