@@ -7,5 +7,7 @@ index_opclass_options
 ----indclassDatum = SysCacheGetAttr(INDEXRELID, indrel->rd_indextuple,
 										Anum_pg_index_indclass, &isnull);
 ----indclass = (oidvector *) DatumGetPointer(indclassDatum);
-----opclass = indclass->values[attnum - 1];									
+----opclass = indclass->values[attnum - 1];
+--init_local_reloptions(&relopts, 0);
+							
 ```
