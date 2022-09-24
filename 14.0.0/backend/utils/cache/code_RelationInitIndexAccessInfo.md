@@ -11,4 +11,11 @@ RelationInitIndexAccessInfo
 --relation->rd_amhandler = aform->amhandler;
 --InitIndexAmRoutine
 --IndexSupportInitialize
+----LookupOpclassInfo
+--RelationGetIndexAttOptions
+----for (i = 0; i < natts; i++)
+------Datum		attoptions = get_attoptions(relid, i + 1);
+--------SearchSysCache2
+--------SysCacheGetAttr
+------opts[i] = index_opclass_options(relation, i + 1, attoptions, false);
 ```
