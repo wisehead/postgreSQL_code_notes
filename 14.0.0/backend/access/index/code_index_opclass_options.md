@@ -9,5 +9,6 @@ index_opclass_options
 ----indclass = (oidvector *) DatumGetPointer(indclassDatum);
 ----opclass = indclass->values[attnum - 1];
 --init_local_reloptions(&relopts, 0);
---procinfo = index_getprocinfo(indrel, attnum, amoptsprocnum);							
+--procinfo = index_getprocinfo(indrel, attnum, amoptsprocnum);
+--(void) FunctionCall1(procinfo, PointerGetDatum(&relopts));--					
 ```
