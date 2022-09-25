@@ -8,7 +8,10 @@ build_local_reloptions
 ----elems[i].opttype = opt->option->type;  
 ----elems[i].offset = opt->offset;         
 --vals = parseLocalRelOptions(relopts, options, validate);
-----
+--opts = allocateReloptStruct(relopts->relopt_struct_size, vals, noptions);
+--fillRelOptions(opts, relopts->relopt_struct_size, vals, noptions, 		validate,elems, noptions);
+--foreach(lc, relopts->validators)
+		((relopts_validator) lfirst(lc)) (opts, vals, noptions);
 ```
 
 #2. parseLocalRelOptions
@@ -43,6 +46,15 @@ parse_one_reloption
 ------parsed = parse_bool(value, &option->values.bool_val);
 ----case RELOPT_TYPE_INT:
 ------parsed = parse_int(value, &option->values.int_val, 0, NULL);
+```
+
+#5. fillRelOptions//copy
+
+```
+fillRelOptions
+--for (i = 0; i < numoptions; i++)
+----for (j = 0; j < numelems; j++)
+------if (strcmp(options[i].gen->name, elems[j].optname) == 0)
 ```
 
 
