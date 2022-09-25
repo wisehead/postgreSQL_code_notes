@@ -10,5 +10,6 @@ index_opclass_options
 ----opclass = indclass->values[attnum - 1];
 --init_local_reloptions(&relopts, 0);
 --procinfo = index_getprocinfo(indrel, attnum, amoptsprocnum);
---(void) FunctionCall1(procinfo, PointerGetDatum(&relopts));--					
+--(void) FunctionCall1(procinfo, PointerGetDatum(&relopts));
+--build_local_reloptions					
 ```
