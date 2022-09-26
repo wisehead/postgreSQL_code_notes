@@ -15,4 +15,7 @@ CreateListPages
 ----PageAddItemExtended(page, item, size, offsetNumber, \
 						((overwrite) ? PAI_OVERWRITE : 0) | \
 						((is_heap) ? PAI_IS_HEAP : 0))
+----(*listInfo)[i].blkno = BufferGetBlockNumber(buf);
+----(*listInfo)[i].offno = offno;
+--IvfflatCommitBuffer(buf, state);
 ```
