@@ -7,7 +7,7 @@ CreateMetaPage
 ------ReadBuffer_common
 ----LockBuffer(buf, BUFFER_LOCK_EXCLUSIVE);
 --IvfflatInitRegisterPage
-
+--IvfflatCommitBuffer
 ```
 
 #2. IvfflatInitRegisterPage
@@ -17,4 +17,12 @@ IvfflatInitRegisterPage
 --GenericXLogRegisterBuffer
 --IvfflatInitPage
 ----PageInit
+```
+
+#3.IvfflatCommitBuffer
+
+```
+IvfflatCommitBuffer
+--MarkBufferDirty
+----if (BufferIsLocal(buffer))
 ```
