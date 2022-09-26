@@ -8,6 +8,7 @@ ExecInitExpr
 --state->ext_params = NULL;
 --ExecInitExprSlots(state, (Node *) node);
 ----get_last_attnums_walker
+----ExecPushExprSlots
 ```
 
 #2.get_last_attnums_walker
