@@ -24,5 +24,5 @@ IvfflatInitRegisterPage
 ```
 IvfflatCommitBuffer
 --MarkBufferDirty
-----if (BufferIsLocal(buffer))
+--GenericXLogFinish
 ```
