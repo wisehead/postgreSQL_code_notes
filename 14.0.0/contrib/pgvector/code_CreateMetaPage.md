@@ -25,4 +25,5 @@ IvfflatInitRegisterPage
 IvfflatCommitBuffer
 --MarkBufferDirty
 --GenericXLogFinish
+--UnlockReleaseBuffer
 ```
