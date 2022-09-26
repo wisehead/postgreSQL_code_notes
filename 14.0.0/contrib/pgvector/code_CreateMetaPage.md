@@ -15,4 +15,6 @@ CreateMetaPage
 IvfflatInitRegisterPage
 --GenericXLogStart
 --GenericXLogRegisterBuffer
+--IvfflatInitPage
+----PageInit
 ```
