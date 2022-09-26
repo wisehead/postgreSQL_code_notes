@@ -7,5 +7,12 @@ CreateMetaPage
 ------ReadBuffer_common
 ----LockBuffer(buf, BUFFER_LOCK_EXCLUSIVE);
 --IvfflatInitRegisterPage
-----GenericXLogStart
+
+```
+
+#2. IvfflatInitRegisterPage
+```
+IvfflatInitRegisterPage
+--GenericXLogStart
+--GenericXLogRegisterBuffer
 ```
