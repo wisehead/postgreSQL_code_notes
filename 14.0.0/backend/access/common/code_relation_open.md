@@ -4,6 +4,9 @@
 relation_open
 --LockRelationOid(relationId, lockmode);
 --RelationIdGetRelation
+--pgstat_initstats(r);
+----rel->pgstat_info = get_tabstat_entry(rel_id, rel->rd_rel->relisshared);
+------hash_entry = hash_search(pgStatTabHash, &rel_id, HASH_ENTER, &found);
 ```
 
 #2.RelationIdGetRelation
