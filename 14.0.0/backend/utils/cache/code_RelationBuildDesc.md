@@ -19,4 +19,5 @@ RelationBuildDesc
 ------RelationInitIndexAccessInfo
 ----case RELKIND_RELATION:
 ------RelationInitTableAccessMethod
+--RelationParseRelOptions
 ```
