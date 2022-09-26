@@ -18,4 +18,5 @@ RelationClearRelation
 ----return;
 --else
 ----newrel = RelationBuildDesc(save_relid, false);
+--RelationDestroyRelation
 ```
