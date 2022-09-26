@@ -20,4 +20,7 @@ RelationBuildDesc
 ----case RELKIND_RELATION:
 ------RelationInitTableAccessMethod
 --RelationParseRelOptions
+--RelationInitLockInfo
+--heap_freetuple(pg_class_tuple);
+
 ```

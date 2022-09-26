@@ -56,3 +56,10 @@ build_reloptions
 				   validate, relopt_elems, num_relopt_elems);
 
 ```
+
+#4.index_reloptions
+
+```
+index_reloptions
+--return amoptions(reloptions, validate);
+```
