@@ -4,10 +4,17 @@
 
 ivfflatbuild
 --BuildIndex
-----InitBuildState
-----ComputeCenters
-----CreateMetaPage
-----CreateListPages
-----CreateEntryPages
-----FreeBuildState
+```
+
+#2. BuildIndex
+
+```
+BuildIndex          
+--InitBuildState    
+--ComputeCenters    
+--CreateMetaPage    
+--CreateListPages   
+--CreateEntryPages  
+--FreeBuildState    
+                   
 ```
