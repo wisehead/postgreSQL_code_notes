@@ -18,4 +18,5 @@ RelationInitIndexAccessInfo
 --------SearchSysCache2
 --------SysCacheGetAttr
 ------opts[i] = index_opclass_options(relation, i + 1, attoptions, false);
+--relation->rd_opcoptions = CopyIndexAttOptions(opts, natts);
 ```
