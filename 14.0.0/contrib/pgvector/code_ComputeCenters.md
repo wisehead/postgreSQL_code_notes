@@ -24,3 +24,17 @@ IvfflatKmeans(buildstate->index, buildstate->samples, buildstate->centers)
 --CheckCenters                                                              
 
 ```
+
+#3.CheckCenters
+```
+CheckCenters
+--qsort(centers->items, centers->length, VECTOR_SIZE(centers->dim), CompareVectors);
+--for (i = 1; i < centers->length; i++)
+----if (CompareVectors(VectorArrayGet(centers, i), VectorArrayGet(centers, i - 1)) == 0)
+------elog(ERROR, "Duplicate centers detected. Please report a bug.");
+--normprocinfo = IvfflatOptionalProcInfo(index, IVFFLAT_NORM_PROC);
+--for (i = 0; i < centers->length; i++)
+----norm = DatumGetFloat8(FunctionCall1Coll(normprocinfo, collation, 		PointerGetDatum(VectorArrayGet(centers, i))));
+----if (norm == 0)
+------elog(ERROR, "Zero norm detected. Please report a bug.");
+```
