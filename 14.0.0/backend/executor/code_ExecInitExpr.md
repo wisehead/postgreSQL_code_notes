@@ -7,4 +7,5 @@ ExecInitExpr
 --state->parent = parent;
 --state->ext_params = NULL;
 --ExecInitExprSlots(state, (Node *) node);
+----get_last_attnums_walker
 ```
