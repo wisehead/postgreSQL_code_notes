@@ -1,6 +1,14 @@
-#1. PortalStart
+#1. PortalRun
 
 ```
-PortalStart
---
+PortalRun
+--MarkPortalActive
+----portal->status = PORTAL_ACTIVE;
+----portal->activeSubid = GetCurrentSubTransactionId();
+--switch (portal->strategy)
+----case PORTAL_ONE_SELECT:
+			case PORTAL_ONE_RETURNING:
+			case PORTAL_ONE_MOD_WITH:
+			case PORTAL_UTIL_SELECT:
+------
 ```
