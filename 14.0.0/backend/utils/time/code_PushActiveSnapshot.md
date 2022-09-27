@@ -8,4 +8,8 @@ PushActiveSnapshot
 ----newactive->as_snap = snap;
 --newactive->as_next = ActiveSnapshot;
 --newactive->as_level = GetCurrentTransactionNestLevel();
+--newactive->as_snap->active_count++;
+--ActiveSnapshot = newactive;
+--if (OldestActiveSnapshot == NULL)
+----OldestActiveSnapshot = ActiveSnapshot;
 ```
