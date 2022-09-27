@@ -22,4 +22,6 @@ standard_ProcessUtility
 --pstate = make_parsestate(NULL);
 --pstate->p_sourcetext = queryString;
 --pstate->p_queryEnv = queryEnv;
+--switch (nodeTag(parsetree))
+----case ....
 ```
