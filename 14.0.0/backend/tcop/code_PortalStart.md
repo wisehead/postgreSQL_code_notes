@@ -10,4 +10,13 @@ PortalStart
 --------PushActiveSnapshot(snapshot);
 ------else
 --------PushActiveSnapshot(GetTransactionSnapshot());
+------queryDesc = CreateQueryDesc(linitial_node(PlannedStmt, portal->stmts),
+											portal->sourceText,
+											GetActiveSnapshot(),
+											InvalidSnapshot,
+											None_Receiver,
+											params,
+											portal->queryEnv,
+											0);
+------ExecutorStart(queryDesc, myeflags);
 ```
