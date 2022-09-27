@@ -17,5 +17,10 @@ ExecutePlan
 ----------tuplestore_puttupleslot
 ------------tuple = ExecCopySlotMinimalTuple(slot);
 ------------tuplestore_puttuple_common(state, (void *) tuple);
+--if (!(estate->es_top_eflags & EXEC_FLAG_BACKWARD))
+----(void) ExecShutdownNode(planstate);
+
+--if (use_parallel_mode)
+----ExitParallelMode();
 ```
 
