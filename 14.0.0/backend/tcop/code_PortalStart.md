@@ -19,4 +19,11 @@ PortalStart
 											portal->queryEnv,
 											0);
 ------ExecutorStart(queryDesc, myeflags);
+------PopActiveSnapshot();
+------break;
+----case PORTAL_ONE_RETURNING:
+----case PORTAL_ONE_MOD_WITH:
+------pstmt = PortalGetPrimaryStmt(portal);
+------portal->tupDesc =
+						ExecCleanTypeFromTL(pstmt->planTree->targetlist);
 ```
