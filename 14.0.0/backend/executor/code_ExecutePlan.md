@@ -33,4 +33,8 @@ ExecReScan
 ------UpdateChangedParamSet(node->lefttree, node->chgParam);
 ----if (node->righttree != NULL)
 ------UpdateChangedParamSet(node->righttree, node->chgParam);
+--if (node->ps_ExprContext)
+----ReScanExprContext(node->ps_ExprContext);
+--switch (nodeTag(node))
+----case.....
 ```
