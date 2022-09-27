@@ -25,5 +25,15 @@ PortalRunMulti
 							 portal->queryEnv,
 							 altdest, NULL);
 ----else
-------
+------if (pstmt->canSetTag)
+--------PortalRunUtility(portal, pstmt, isTopLevel, false,
+								 dest, qc);
+------else
+--------PortalRunUtility(portal, pstmt, isTopLevel, false,
+								 altdest, NULL);
+--if (active_snapshot_set)
+----PopActiveSnapshot();					
+--if (qc && qc->commandTag == CMDTAG_UNKNOWN)
+----if (portal->qc.commandTag != CMDTAG_UNKNOWN)
+------CopyQueryCompletion(qc, &portal->qc);
 ```
