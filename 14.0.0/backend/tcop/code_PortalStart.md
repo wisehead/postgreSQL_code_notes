@@ -26,4 +26,13 @@ PortalStart
 ------pstmt = PortalGetPrimaryStmt(portal);
 ------portal->tupDesc =
 						ExecCleanTypeFromTL(pstmt->planTree->targetlist);
+------break;
+----case PORTAL_UTIL_SELECT:
+------PlannedStmt *pstmt = PortalGetPrimaryStmt(portal);
+------portal->tupDesc = UtilityTupleDescriptor(pstmt->utilityStmt);
+------break;
+----case PORTAL_MULTI_QUERY:
+				/* Need do nothing now */
+------portal->tupDesc = NULL;
+------break;
 ```

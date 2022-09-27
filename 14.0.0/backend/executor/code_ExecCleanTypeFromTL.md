@@ -10,4 +10,5 @@ ExecCleanTypeFromTL
 ```
 ExecTypeFromTLInternal
 --ExecCleanTargetListLength(targetList);
+--typeInfo = CreateTemplateTupleDesc(len);
 ```
