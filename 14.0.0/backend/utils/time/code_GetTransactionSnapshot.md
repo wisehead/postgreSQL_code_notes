@@ -6,6 +6,11 @@ GetTransactionSnapshot
 ----return HistoricSnapshot;
 --if (!FirstSnapshotSet)
 ----InvalidateCatalogSnapshot
+----if (IsolationUsesXactSnapshot())
+------if (IsolationIsSerializable())
+--------CurrentSnapshot = 	GetSerializableTransactionSnapshot(&CurrentSnapshotData);
+------else
+--------CurrentSnapshot = GetSnapshotData(&CurrentSnapshotData);
 ```
 
 #2. InvalidateCatalogSnapshot
