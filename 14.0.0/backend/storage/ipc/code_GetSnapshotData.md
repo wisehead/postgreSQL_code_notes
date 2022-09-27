@@ -6,7 +6,8 @@ GetSnapshotData
 ----snapshot->xip = (TransactionId *)
 			malloc(GetMaxSnapshotXidCount() * sizeof(TransactionId));
 --LWLockAcquire(ProcArrayLock, LW_SHARED);
---GetSnapshotDataReuse
+--if (GetSnapshotDataReuse(snapshot))
+----return snapshot;
 --if (!snapshot->takenDuringRecovery)
 ----for (int pgxactoff = 0; pgxactoff < numProcs; pgxactoff++)
 ------
