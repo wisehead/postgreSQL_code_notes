@@ -8,6 +8,7 @@ tuplestore_gettupleslot
 ------tuple = heap_copy_minimal_tuple(tuple);
 ------should_free = true;
 ----ExecStoreMinimalTuple(tuple, slot, should_free);
+------tts_minimal_store_tuple
 ----return true;
 --else
 ----ExecClearTuple(slot);
