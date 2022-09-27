@@ -7,4 +7,6 @@ FillPortalStore
 		tuplestore_begin_heap(portal->cursorOptions & CURSOR_OPT_SCROLL,
 							  true, work_mem);
 ------tuplestore_begin_common
+--CreateDestReceiver
+----CreateTuplestoreDestReceiver 
 ```
