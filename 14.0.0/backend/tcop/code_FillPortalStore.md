@@ -20,5 +20,14 @@ FillPortalStore
 	 case PORTAL_ONE_MOD_WITH:				
 ------PortalRunMulti(portal, isTopLevel, true,
 						   treceiver, None_Receiver, &qc);
-------break;	 				
+------break;	 		
+----case PORTAL_UTIL_SELECT:
+------PortalRunUtility(portal, linitial_node(PlannedStmt, portal->stmts),
+							 isTopLevel, true, treceiver, &qc);
+------break;		
+----default:	
+------break;	
+--if (qc.commandTag != CMDTAG_UNKNOWN)
+-------CopyQueryCompletion(&portal->qc, &qc);
+--treceiver->rDestroy(treceiver);
 ```
