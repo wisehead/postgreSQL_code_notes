@@ -9,4 +9,16 @@ FillPortalStore
 ------tuplestore_begin_common
 --CreateDestReceiver
 ----CreateTuplestoreDestReceiver 
+--SetTuplestoreDestReceiverParams(treceiver,
+									portal->holdStore,
+									portal->holdContext,
+									false,
+									NULL,
+									NULL);
+--switch (portal->strategy)
+----case PORTAL_ONE_RETURNING:
+	 case PORTAL_ONE_MOD_WITH:				
+------PortalRunMulti(portal, isTopLevel, true,
+						   treceiver, None_Receiver, &qc);
+------break;	 				
 ```
