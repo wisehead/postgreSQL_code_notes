@@ -16,4 +16,17 @@ standard_ExecutorRun
 --if (sendTuples)
 ----dest->rStartup(dest, operation, queryDesc->tupDesc);
 ------tstoreStartupReceiver
+--if (!ScanDirectionIsNoMovement(direction))
+----ExecutePlan(estate,
+					queryDesc->planstate,
+					queryDesc->plannedstmt->parallelModeNeeded,
+					operation,
+					sendTuples,
+					count,
+					direction,
+					dest,
+					execute_once);
+--if (sendTuples)
+----dest->rShutdown(dest);
+------tstoreShutdownReceiver
 ```
