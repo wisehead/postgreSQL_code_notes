@@ -67,6 +67,8 @@ ExecIndexBuildScanKeys
 --------n_array_keys++;    
 ------ScanKeyEntryInitialize                                
 
+----else if (IsA(clause, NullTest))
+------
 					
 
 
