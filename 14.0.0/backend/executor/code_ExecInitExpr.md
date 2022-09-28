@@ -9,6 +9,12 @@ ExecInitExpr
 --ExecInitExprSlots(state, (Node *) node);
 ----get_last_attnums_walker
 ----ExecPushExprSlots
+--ExecInitExprRec(node, state, &state->resvalue, &state->resnull);
+--scratch.opcode = EEOP_DONE;
+--ExprEvalPushStep(state, &scratch);
+--ExecReadyExpr(state);
+----jit_compile_expr
+----ExecReadyInterpretedExpr
 ```
 
 #2.get_last_attnums_walker
