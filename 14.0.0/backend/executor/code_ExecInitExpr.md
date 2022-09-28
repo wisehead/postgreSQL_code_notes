@@ -33,5 +33,6 @@ get_last_attnums_walker
 				break;
 		}
 ----return false;
---expression_tree_walker
+--return expression_tree_walker(node, get_last_attnums_walker,
+								  (void *) info);
 ```
