@@ -1,0 +1,6 @@
+#1. ExecInitSeqScan
+
+```
+ExecInitSeqScan
+--
+```
