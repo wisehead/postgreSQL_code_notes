@@ -25,5 +25,8 @@ ExecAsyncRequest
 ----default:
 ------break;
 --ExecAsyncResponse(areq);
+----ExecAsyncAppendResponse(areq);
+------TupleTableSlot *slot = areq->result;
+------node->as_asyncresults[node->as_nasyncresults++] = slot;
 
 ```
