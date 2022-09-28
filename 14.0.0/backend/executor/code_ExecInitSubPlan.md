@@ -18,4 +18,35 @@ ExecInitSubPlan
 ------oplist = list_make1(subplan->testexpr);
 ----else if (is_andclause(subplan->testexpr))
 ------oplist = castNode(BoolExpr, subplan->testexpr)->args;
+----foreach(l, oplist)
+------OpExpr	   *opexpr = lfirst_node(OpExpr, l);
+      	    expr = (Expr *) linitial(opexpr->args);
+			tle = makeTargetEntry(expr,
+								  i,
+								  NULL,
+								  false);
+			lefttlist = lappend(lefttlist, tle);
+
+			/* Process righthand argument */
+			expr = (Expr *) lsecond(opexpr->args);
+			tle = makeTargetEntry(expr,
+								  i,
+								  NULL,
+								  false);
+			righttlist = lappend(righttlist, tle);
+----//end foreach
+----tupDescLeft = ExecTypeFromTL(lefttlist);
+		slot = ExecInitExtraTupleSlot(estate, tupDescLeft, &TTSOpsVirtual);
+		sstate->projLeft = ExecBuildProjectionInfo(lefttlist,
+												   NULL,
+												   slot,
+												   parent,
+												   NULL);
+
+		sstate->descRight = tupDescRight = ExecTypeFromTL(righttlist);
+		slot = ExecInitExtraTupleSlot(estate, tupDescRight, &TTSOpsVirtual);
+		sstate->projRight = ExecBuildProjectionInfo
+----sstate->cur_eq_comp = ExecBuildGroupingEqual
+--//end if (subplan->useHashTable)
+--return sstate;
 ```
