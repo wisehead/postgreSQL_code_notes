@@ -10,5 +10,10 @@ ExecSeqScan
 #2.ExecScan
 ```
 ExecScan
---
+--qual = node->ps.qual;
+--projInfo = node->ps.ps_ProjInfo;
+--econtext = node->ps.ps_ExprContext;
+--if (!qual && !projInfo)
+----return ExecScanFetch(node, accessMtd, recheckMtd);
+
 ```
