@@ -15,6 +15,8 @@ ExecInitExpr
 --ExecReadyExpr(state);
 ----jit_compile_expr
 ----ExecReadyInterpretedExpr
+------ExecInitInterpreter
+------state->evalfunc = ExecInterpExprStillValid;
 ```
 
 #2.get_last_attnums_walker
