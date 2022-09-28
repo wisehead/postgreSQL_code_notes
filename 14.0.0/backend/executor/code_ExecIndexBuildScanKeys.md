@@ -68,7 +68,13 @@ ExecIndexBuildScanKeys
 ------ScanKeyEntryInitialize                                
 
 ----else if (IsA(clause, NullTest))
-------
+------NullTest   *ntest = (NullTest *) clause;
+------leftop = ntest->arg;
+------varattno = ((Var *) leftop)->varattno;
+------ScanKeyEntryInitialize
+
+----else
+------elog
 					
 
 
