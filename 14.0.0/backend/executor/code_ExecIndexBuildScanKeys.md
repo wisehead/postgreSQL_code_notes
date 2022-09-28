@@ -47,5 +47,34 @@ ExecIndexBuildScanKeys
 --------n_runtime_keys++;                   
                      
 ----else if (IsA(clause, ScalarArrayOpExpr))
+------ScalarArrayOpExpr *saop = (ScalarArrayOpExpr *) clause;
+------leftop = (Expr *) linitial(saop->args);
+------varattno = ((Var *) leftop)->varattno;
+------opfamily = index->rd_opfamily[varattno - 1];
+------get_op_opfamily_properties
+------rightop = (Expr *) lsecond(saop->args);
+------if (index->rd_indam->amsearcharray)
+--------runtime_keys[n_runtime_keys].scan_key = this_scan_key;
+--------runtime_keys[n_runtime_keys].key_expr =
+						ExecInitExpr(rightop, planstate);
+--------runtime_keys[n_runtime_keys].key_toastable = true;
+--------n_runtime_keys++;
+------else
+--------array_keys[n_array_keys].scan_key = this_scan_key; 
+--------array_keys[n_array_keys].array_expr =              
+			ExecInitExpr(rightop, planstate);                
+--------/* the remaining fields were zeroed by palloc0 */  
+--------n_array_keys++;    
+------ScanKeyEntryInitialize                                
+
+					
+
+
+
+
+
+
+
+
 
 ```
