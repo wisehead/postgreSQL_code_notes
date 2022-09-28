@@ -34,4 +34,24 @@ ExecInitIndexScan
 						   &indexstate->iss_NumRuntimeKeys,
 						   NULL,	/* no ArrayKeys */
 						   NULL);
+--if (indexstate->iss_NumOrderByKeys > 0)
+----forboth(lco, node->indexorderbyops, lcx, node->indexorderbyorig)
+------Oid			orderbyop = lfirst_oid(lco);
+------Node	   *orderbyexpr = (Node *) lfirst(lcx);
+------SortSupport orderbysort = &indexstate->iss_SortSupport[i];
+------PrepareSortSupportFromOrderingOp(orderbyop, orderbysort);
+------get_typlenbyval(orderbyType,
+							&indexstate->iss_OrderByTypLens[i],
+							&indexstate->iss_OrderByTypByVals[i]);
+							
+--indexstate->iss_ReorderQueue = pairingheap_allocate(reorderqueue_cmp,
+						indexstate);
+
+
+
+
+
+
+
+
 ```
