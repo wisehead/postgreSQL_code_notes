@@ -8,4 +8,10 @@ ExecScanFetch
 ----(!(*recheckMtd) (node, slot))
 ------SeqRecheck
 ----return slot;
+--else if (epqstate->relsubs_done[scanrelid - 1])
+----return ExecClearTuple(slot);
+--else if (epqstate->relsubs_slot[scanrelid - 1] != NULL)
+----//todo
+--else if (epqstate->relsubs_rowmark[scanrelid - 1] != NULL)
+----EvalPlanQualFetchRowMark
 ```
