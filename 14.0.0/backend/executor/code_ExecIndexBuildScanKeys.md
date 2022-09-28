@@ -27,6 +27,7 @@ ExecIndexBuildScanKeys
 						 ((OpExpr *) clause)->inputcollid,/* collation */
 								   opfuncid,	/* reg proc to use */
 								   scanvalue);/* constant */
+								   
 ----else if (IsA(clause, RowCompareExpr))
 ------forfour(largs_cell, rc->largs, rargs_cell, rc->rargs,
 					opnos_cell, rc->opnos, collids_cell, rc->inputcollids)
@@ -43,7 +44,8 @@ ExecIndexBuildScanKeys
 		ExecInitExpr(rightop, planstate);                      
 --------runtime_keys[n_runtime_keys].key_toastable =             
 		TypeIsToastable(op_righttype);                         
---------n_runtime_keys++;                                        
-     
+--------n_runtime_keys++;                   
+                     
+----else if (IsA(clause, ScalarArrayOpExpr))
 
 ```
