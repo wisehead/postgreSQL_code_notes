@@ -17,5 +17,4 @@ typedef struct ItemIdData
 } ItemIdData;
 
 typedef ItemIdData *ItemId;
-
 ```
