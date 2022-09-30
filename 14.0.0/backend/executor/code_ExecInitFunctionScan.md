@@ -26,5 +26,10 @@ ExecInitTableFunctionResult
 
 ```
 init_sexpr
---
+--pg_proc_aclcheck
+--fmgr_info_cxt(foid, &(sexpr->func), sexprCxt);
+--if (sexpr->func.fn_retset && needDescForSRF)
+----functypclass = get_expr_result_type(sexpr->func.fn_expr,
+											&funcrettype,
+											&tupdesc);
 ```
