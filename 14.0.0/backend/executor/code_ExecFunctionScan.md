@@ -15,6 +15,7 @@ FunctionNext
 ----Tuplestorestate *tstore = node->funcstates[0].tstore;
 ----if (tstore == NULL)
 ------ExecMakeTableFunctionResult
+------tuplestore_rescan(tstore);
 ----tuplestore_gettupleslot
 ```
 
