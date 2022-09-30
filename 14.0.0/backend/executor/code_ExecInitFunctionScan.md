@@ -9,3 +9,11 @@ ExecInitFunctionScan
 ----FunctionScanPerFuncState *fs = &scanstate->funcstates[i];
 ----ExecInitTableFunctionResult
 ```
+
+#2. ExecInitTableFunctionResult
+
+```
+ExecInitTableFunctionResult
+--SetExprState *state = makeNode(SetExprState);
+--if (IsA(expr, FuncExpr))
+```
