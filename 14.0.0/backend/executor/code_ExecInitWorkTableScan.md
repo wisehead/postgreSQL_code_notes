@@ -2,5 +2,6 @@
 
 ```
 ExecInitWorkTableScan
+--scanstate->ss.ps.ExecProcNode = ExecWorkTableScan;
 --
 ```
