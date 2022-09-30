@@ -7,4 +7,5 @@ ExecInitFunctionScan
 ----RangeTblFunction *rtfunc = (RangeTblFunction *) lfirst(lc);
 ----Node	   *funcexpr = rtfunc->funcexpr;
 ----FunctionScanPerFuncState *fs = &scanstate->funcstates[i];
+----ExecInitTableFunctionResult
 ```
