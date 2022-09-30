@@ -13,6 +13,7 @@ internal_get_result_type
 --procform = (Form_pg_proc) GETSTRUCT(tp);
 --rettype = procform->prorettype;
 --tupdesc = build_function_result_tupdesc_t(tp);
+--result = get_type_func_class(rettype, &base_rettype);
 ```
 
 #3.build_function_result_tupdesc_t
