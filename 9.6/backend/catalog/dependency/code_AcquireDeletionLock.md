@@ -1,4 +1,5 @@
 #1.AcquireDeletionLock
+“ShareUpdateExclusiveLock”可用于为系统表pg_class等加排它锁，禁止在同一个表对象上同时执行多个类似ANALYZE的操作，如：
 
 ```cpp
 AcquireDeletionLock(const ObjectAddress *object, int flags) //在删除的对象上加排它类的锁
