@@ -10,9 +10,9 @@ struct HeapTupleHeaderData  //元组头
         DatumTupleFields t_datum;
     } t_choice;
     ItemPointerData t_ctid;  /* current TID of this or newer tuple (or a *
- speculative insertion token) */ //记录当前元组或者新元组的物理位置（物理位置是指：块内偏
+ speculative insertion token) */ /*记录当前元组或者新元组的物理位置（物理位置是指：块内偏
 移和元组长度）。如果元组被更新（逻辑上做删除标记，表示删除旧版本元组，并插入新版本元组），则t_
-ctid记录的是新版本元组的物理位置
+ctid记录的是新版本元组的物理位置*/
     /* Fields below here must match MinimalTupleData! */
     //两个重要的标志位，htup_details.h文件中定义了每个标志位可设置的标志
     uint16        t_infomask2;    /* number of attributes + various flags */
